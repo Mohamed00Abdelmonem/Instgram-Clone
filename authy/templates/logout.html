@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+        
+{% block content %}
+
+<div class="container mt-5">
+    <div class="column is-4 is-offset-4">
+        <h2 class="title has-text-centered mb-6">Logout Page</h2>
+
+{% if user.is_authenticated %}
+  <p>Welcome, {{ user.username }}!</p>
+  <a href="{% url 'logout' %}">Logout</a>
+{% else %}
+  <a href="{% url 'login' %} "><h2 class="button is-primary is-fullwidth" class="title has-text-centered mb-6">Login agin</h2></a>
+{% endif %}
+
+
+</div>
+</div>
+
+{% endblock %}
