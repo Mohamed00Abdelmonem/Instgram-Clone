@@ -11,3 +11,11 @@ def index(request):
 
     context = {'post_items': post_items}
     return render(request, 'index.html', context)
+
+
+
+def post_detail(request, post_id):
+    post = Post.objects.get(id = post_id)
+    # user = user.request
+
+    return render(request, 'post_detail.html', {'post':post})

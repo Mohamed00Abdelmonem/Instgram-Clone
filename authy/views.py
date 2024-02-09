@@ -15,17 +15,17 @@ from django.core.paginator import Paginator
 def UserProfile(request, username):
 	user = get_object_or_404(User, username=username)
 	profile = Profile.objects.get(user=user)
-	articles = profile.favorites.all()
+	# articles = profile.favorites.all()
 
 	#Pagination
-	paginator = Paginator(articles, 6)
+	# paginator = Paginator(articles, 6)
 	page_number = request.GET.get('page')
-	articles_paginator = paginator.get_page(page_number)
+	# articles_paginator = paginator.get_page(page_number)
 
 	template = loader.get_template('profile.html')
 
 	context = {
-		'articles': articles_paginator,
+		# 'articles': articles_paginator,
 		'profile':profile,
 	}
 
@@ -63,7 +63,7 @@ def PasswordChange(request):
 			update_session_auth_hash(request, user)
 			return redirect('change_password_done')
 	else:
-		form = ChangePasswordForm(instance=user)
+		form = ChangePasswordForm(instance=user)					
 
 	context = {
 		'form':form,
